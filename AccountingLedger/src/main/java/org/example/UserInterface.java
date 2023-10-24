@@ -106,7 +106,7 @@ public class UserInterface {
                 String userInput = scanner.nextLine();
                 switch(userInput.toLowerCase()){
                     case "a":
-                            l.displayLedger(tm.transactions);
+                        l.displayLedger(tm.transactions);
                         break;
                     case "d":
                             l.displayDeposits(tm.transactions);
