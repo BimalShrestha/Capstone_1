@@ -166,6 +166,7 @@ public class UserInterface {
             } catch (Exception exception) {
                 System.out.println("Enter the correct input");
             }
+            break;
 
         }
     }
