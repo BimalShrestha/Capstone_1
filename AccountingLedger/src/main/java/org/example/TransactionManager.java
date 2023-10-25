@@ -11,12 +11,15 @@ public class TransactionManager {
     public ArrayList<Transaction> transactions = new ArrayList<>();
 
     public void writeExistingFinancialTransaction(){
-
-        transactions.add(new Transaction(LocalDate.of(2018,10,11), LocalTime.of(11,15, 0),"Invoice 1001 paid","Joe",1500.00));
-        transactions.add(new Transaction(LocalDate.of(2021,12,22), LocalTime.of(8,11,59),"Invoice 1002 paid","Suarez",20000.50));
-        transactions.add(new Transaction(LocalDate.of(2022,4,15), LocalTime.of(10,13,25),"erogonomic keyboard","amazon",-89.50));
-        transactions.add(new Transaction(LocalDate.of(2023,9,18), LocalTime.of(3,5,22),"Invoice 1003 paid","Kawhi",151545.35));
         transactions.add(new Transaction(LocalDate.of(2023,10,11), LocalTime.of(2,4,18),"Invoice 1004 paid","MJ",46352.25));
+        transactions.add(new Transaction(LocalDate.of(2023,9,18), LocalTime.of(3,5,22),"Invoice 1003 paid","Kawhi",151545.35));
+        transactions.add(new Transaction(LocalDate.of(2022,4,15), LocalTime.of(10,13,25),"erogonomic keyboard","amazon",-89.50));
+        transactions.add(new Transaction(LocalDate.of(2021,12,22), LocalTime.of(8,11,59),"Invoice 1002 paid","Suarez",20000.50));
+        transactions.add(new Transaction(LocalDate.of(2018,10,11), LocalTime.of(11,15, 0),"Invoice 1001 paid","Joe",1500.00));
+
+
+
+
 
         try {
             FileWriter fileWriter = new FileWriter("src/main/resources/ledger.csv");
@@ -85,6 +88,7 @@ public class TransactionManager {
             System.out.println("Sorry file not found");
         }
     }
+
 
     }
 

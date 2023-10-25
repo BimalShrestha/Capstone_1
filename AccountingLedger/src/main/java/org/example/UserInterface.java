@@ -1,4 +1,5 @@
 package org.example;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -63,6 +64,7 @@ public class UserInterface {
                         break;
                     case "l":
                             ledgerOption();
+
                         break;
                     case "x":
                         System.exit(0);
@@ -85,7 +87,7 @@ public class UserInterface {
     }
     private void displayLedgerOption(){
         System.out.println("Chose the following ledger option");
-        System.out.println("A) Display All \nD) Display Deposits \nP) Display Payments \nR) Display Reports \nH) Home");
+        System.out.println("A) Display All \nD) Display Deposits \nP) Display Payments \nR) Display Reports \nH) Home ");
     }
     private void displayReportOption(){
         System.out.println("Chose the following option:");
@@ -94,6 +96,7 @@ public class UserInterface {
         System.out.println("3) Year To Date");
         System.out.println("4) Previous Year");
         System.out.println("5) Search by Vendor");
+        System.out.println("6) Custom Search");
         System.out.println("0) Back");
     }
     public void ledgerOption(){
@@ -118,7 +121,7 @@ public class UserInterface {
                         reports();
                         break;
                     case "h":
-                        System.out.println("You're going back to the Ledger home page");
+                        System.out.println("You're going back to the home page");
                         return;
                     default:
                         System.out.println("Enter a valid output");
@@ -155,8 +158,12 @@ public class UserInterface {
                         String vendor = scanner.nextLine();
                         l.searchByVendor(tm.transactions,vendor);
                         break;
+                    case 6:
+
+                        l.customSearch(tm.transactions);
+                        break;
                     case 0:
-                        System.out.println("Going back to Home page");
+                        System.out.println("Going back to ledger Home page");
                         return;
                     default:
                         System.out.println("Enter a valid output");
@@ -166,6 +173,7 @@ public class UserInterface {
             } catch (Exception exception) {
                 System.out.println("Enter the correct input");
             }
+            scanner.nextLine();
             break;
 
         }
