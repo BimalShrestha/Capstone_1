@@ -91,9 +91,6 @@ public class Ledger {
                     if ((transactionDate.isEqual(startDate) || transactionDate.isEqual(endDate) || (transactionDate.isAfter(startDate) && transactionDate.isBefore(endDate))) || userInput.equalsIgnoreCase(transaction.getDescription())
                             || userInput.equalsIgnoreCase(transaction.getVendor()) || userAmountInput == transaction.getAmount()) {
                         matchingTransactions.add(transaction);
-                    } else {
-                        System.out.println("There is no record of the transaction that match that input");
-                        break;
                     }
                 }
                 for (Transaction matchedTransaction : matchingTransactions) {
