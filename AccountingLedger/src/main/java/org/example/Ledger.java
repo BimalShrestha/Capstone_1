@@ -59,15 +59,20 @@ public class Ledger {
         }
     }
     public void searchByVendor(ArrayList<Transaction> vendorTransactions, String vendor){
-        for(Transaction t: vendorTransactions){
-            if(t.getVendor().equalsIgnoreCase(vendor)){
-                System.out.println(t);
+        boolean isThere = false;
+        while (!isThere) {
+            for (Transaction t : vendorTransactions) {
+                if (t.getVendor().equalsIgnoreCase(vendor)) {
+                    System.out.println(t);
+                    isThere = true;
+                }
             }
-            else{
-                System.out.println("we don't have that vendor name");
+            if (!isThere) {
+                System.out.println("There is no vendor of that name");
                 break;
             }
         }
+
     }
     public void customSearch(ArrayList<Transaction> customTransactionSearch){
         List<Transaction> matchingTransactions = new ArrayList<>();
@@ -97,7 +102,7 @@ public class Ledger {
                     System.out.println(matchedTransaction);
                 }
             } catch (DateTimeParseException e) {
-                System.out.println("Not the correct input format");
+                System.out.println("Not the correct input format for date");
             } catch (InputMismatchException e) {
                 System.out.println("Enter a double input");
                 scanner.nextLine();

@@ -1,5 +1,6 @@
 package org.example;
 import java.time.LocalDate;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -81,7 +82,7 @@ public class UserInterface {
         }
     }
     private void displayHomeScreenOption(){
-        System.out.println("Welcome to Bimal's Accounting ledger Application");
+        System.out.println("Welcome to BuckAndBear's Accounting ledger Application");
         System.out.println("Please Chose an option:");
         System.out.println("D) Add deposit \nP) Make Payment(Debit) \nL) Ledger \nX) Exit");
     }
@@ -135,46 +136,46 @@ public class UserInterface {
 
     }
     public void reports() {
-        while (true) {
+        reportPage:while (true) {
             try {
                 displayReportOption();
                 int userInput = scanner.nextInt();
                 switch (userInput) {
                     case 1:
                         l.searchMTD(tm.transactions);
-                        break;
+                        continue reportPage;
                     case 2:
                         l.searchPreviousMonth(tm.transactions);
-                        break;
+                        continue reportPage;
                     case 3:
                         l.searchYearToDate(tm.transactions);
-                        break;
+                        continue reportPage;
                     case 4:
                        l.searchPreviousYear(tm.transactions);
-                        break;
+                        continue reportPage;
                     case 5:
                         System.out.println("Enter the vendor name: ");
                         scanner.nextLine();
                         String vendor = scanner.nextLine();
                         l.searchByVendor(tm.transactions,vendor);
-                        break;
+                        continue reportPage;
                     case 6:
 
                         l.customSearch(tm.transactions);
-                        break;
+                        continue reportPage;
                     case 0:
                         System.out.println("Going back to ledger Home page");
+                        scanner.nextLine();
                         return;
                     default:
                         System.out.println("Enter a valid output");
                         break;
                 }
 
-            } catch (Exception exception) {
+            } catch (InputMismatchException exception) {
                 System.out.println("Enter the correct input");
             }
             scanner.nextLine();
-            break;
 
         }
     }
