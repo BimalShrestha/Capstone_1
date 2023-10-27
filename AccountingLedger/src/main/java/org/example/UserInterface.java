@@ -125,7 +125,7 @@ public class UserInterface {
                         System.out.println("You're going back to the home page");
                         return;
                     default:
-                        System.out.println("Enter a valid output");
+                        System.out.println("Enter a valid input");
                         break;
                 }
             }

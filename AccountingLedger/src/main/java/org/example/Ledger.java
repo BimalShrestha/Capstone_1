@@ -39,7 +39,8 @@ public class Ledger {
     }
     public void searchPreviousMonth(ArrayList<Transaction> pmTransactions){
         for(Transaction t: pmTransactions){
-            if(!t.getDate().isBefore(YearMonth.now().minusMonths(1).atDay(1)) && !t.getDate().isAfter((YearMonth.now().minusMonths(1).atEndOfMonth()))){
+            if(!t.getDate().isBefore(YearMonth.now().minusMonths(1).atDay(1)) &&
+                    !t.getDate().isAfter((YearMonth.now().minusMonths(1).atEndOfMonth()))){
             System.out.println(t);
             }
         }
@@ -93,8 +94,11 @@ public class Ledger {
 
                 for (Transaction transaction : customTransactionSearch) {
                     LocalDate transactionDate = transaction.getDate();
-                    if ((transactionDate.isEqual(startDate) || transactionDate.isEqual(endDate) || (transactionDate.isAfter(startDate) && transactionDate.isBefore(endDate))) || userInput.equalsIgnoreCase(transaction.getDescription())
-                            || userInput.equalsIgnoreCase(transaction.getVendor()) || userAmountInput == transaction.getAmount()) {
+                    if ((transactionDate.isEqual(startDate) || transactionDate.isEqual(endDate) ||
+                            (transactionDate.isAfter(startDate) && transactionDate.isBefore(endDate))) ||
+                            userInput.equalsIgnoreCase(transaction.getDescription())
+                            || userInput.equalsIgnoreCase(transaction.getVendor()) ||
+                            userAmountInput == transaction.getAmount()) {
                         matchingTransactions.add(transaction);
                     }
                 }
